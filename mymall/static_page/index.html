@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>mymall</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/css/swiper.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/css/swiper.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
   <meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=750,user-scalable=no" />
@@ -91,12 +91,12 @@
 <!-- 搜索页 -->
 <div class="searchpage">
   <div class="input"><input type="text" placeholder="输入想要搜索内容"><img class="search_but" src="./img/input.png" alt="搜索"></div>
+  <div class="tipword"><!-- 搜索提示 --></div>
   <div class="search_content">
       <ul class="list search_list">
-          <li><img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">12</span><span class="price">10</span></li>
-          <li><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">2</span><span class="price">20</span></li>
+          <!-- <li><img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">12</span><span class="price">10</span></li>
+          <li><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">2</span><span class="price">20</span></li> -->
         </ul>
-        <h3 class="no_more">已经到底啦~</h3>
   </div>
 </div>
 <!-- 订单 -->
@@ -158,34 +158,34 @@
     <span class="changeuser"><i class="glyphicon glyphicon-refresh"></i>切换用户</span>
   </div>
   <div class="parttwo">
-    <span class="myaddress">账户管理</span>
-    <span class="like act">收藏夹</span>
-    <span class="browsing_history">浏览足迹</span>
+    <span name="myinfor" class="myaddress">账户管理</span>
+    <span name="like_list" class="like act">收藏夹</span>
+    <span name="history_list" class="browsing_history">浏览足迹</span>
   </div>
   <div class="partthree">
     <div class="myinfor">
       <div class="infor_nav">
-        <span class="act">收货地址</span><span>修改密码</span><span>意见反馈</span>
+        <span name="my_address" class="act">收货地址</span><span name="my_password">修改密码</span><span name="contact">联系我们</span>
       </div>
       <div class="show_infor">
         <div class="my_address">
-            <i>收件人：</i><input type="text">
-            <i>联系电话：</i><input type="tel">
+            <i>收件人：</i><input class="a" type="text">
+            <i>联系电话：</i><input class="b" type="tel">
             <i>收件地址：</i><textarea></textarea>
             <span class="address_sub">确认提交</span>
         </div>
         <div class="my_password">
           <i>请输入旧密码：</i> 
-          <input type='password' placeholder="输入旧密码"><span class="oldpass_but">确定</span>
+          <input class="a" type='password' placeholder="输入旧密码">
           <i>请输入新密码</i>
-          <input type="password" placeholder="输入新密码">
-          <input type="password" placeholder="确认新密码">
+          <input class="b" type="password" placeholder="输入新密码">
+          <input class="c" type="password" placeholder="确认新密码">
           <span class='pass_sub'>确认修改</span>
         </div>
-        <div class="advice">
-          <i>请留下您宝贵的建议</i> 
-          <textarea class="advice"></textarea>
-          <span class="advice_sub">提交</span>
+        <div class="contact">
+          <img src="./img/ewm.jpg">
+          <span class="callme">长按二维码保存<br>微信号：cxx251x<br>QQ：2793146616</span>
+           <a href="tel:15840064863"><span>电话：15840064863</span></a>
         </div>
       </div>
 
@@ -242,10 +242,13 @@
     </div>
   </div>
 </div> -->
+<div class="sharepage">
+  <img src="./img/share2.png">
+</div>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- <script src="http://img2.cache.netease.com/f2e/house/house_lib/js/h5share_fixed.1059520.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/js/swiper.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/js/swiper.min.js"></script>
 <script src="require.js" data-main="index.js"></script>
 <!-- <script src="index.js"></script> -->
 

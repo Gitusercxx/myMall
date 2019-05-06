@@ -11,8 +11,6 @@ define(function() {
            error: function (err) {
               console.log(err)
            }
-  
-
         })
      }
      function checkval (val, type) {
@@ -42,14 +40,21 @@ define(function() {
          if (val.length > 0) {
             return true;
          } else {
-            alert('内容不能为空！');
+            alert('请填写完整信息！');
             return false;
          }
       }
    }
+   // // 商品数据
+   // function goodsdat(){
+   //    ajax('./allgoods','GET',null,function(dat){
+   //       console.log(typeof(dat) )
+   //       return dat;
+   //    })
+   // }
      var tools = {
       ajax,
-      checkval
+      checkval,
      }
     return tools;
 });

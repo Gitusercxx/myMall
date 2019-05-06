@@ -13,7 +13,9 @@ define(['tools'],function(tools) {
            $('.star').off('click');
            $('.glyphicon-star-empty').css('display', 'none');
            $('.glyphicon-star').fadeIn(200);
-           $('.starnum').html(parseInt($('.starnum').html()) + 1)
+           var starnum = parseInt($('.starnum').html())+1
+           $('.starnum').html(starnum);
+           ajax('./addstar?starnum='+starnum,'GET',null,function(){})
         }
      }
      return haed_tool;

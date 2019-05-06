@@ -1,12 +1,14 @@
 p,div,h1,h2,h3,h4,h5,ul,li,span,img{
-    padding: 0;
+    padding: 0px;
     margin:0px;
     list-style: none;
+
 }
 html,body{
     overflow-x: hidden;
     width: 750px;
     height:100%;
+    font-size: 0px;
 }
 /* 用户登录 */
 .log_close{
@@ -16,22 +18,21 @@ html,body{
     opacity: 0.4;
 }
 .logbj{
-    opacity: 0.7;
     width:100%;
     height:100%;
     position: absolute;
     top:0px;
     left:0px;
-    z-index: -1;
+    z-index: 25;
 }
 .login_page{
     width:100%;
     height:100%;
-    background:rgba(116, 115, 115, 0.418);
+    background:rgba(116, 115, 115, 0.5);
     position: absolute;
     top:0px;
     left:0px;
-    z-index: 1;
+    z-index: 26;
 }
 .log_wapper{
     /* display: none; */
@@ -302,7 +303,7 @@ html,body{
 }
 /* 顶部 */
 .head{
-    display: none;
+    /* display: none; */
     box-sizing: border-box;
     padding: 10px 10px 0 20px;
     /* background:rgb(80, 177, 233); */
@@ -358,7 +359,7 @@ html,body{
     display: none;
 }
 .indexpage{
-    display: none;
+    /* display: none; */
 }
 /* 轮播图 */
 .swiper-container1{
@@ -514,7 +515,7 @@ html,body{
 .list>li .like{
     position: absolute;
     bottom: 40px;
-    right: 0px;
+    right: 10px;
 }
 .list>li .like::after{
     content: url(./img/heart.png);
@@ -546,7 +547,7 @@ html,body{
 }
 /* 底部导航 */
 .bottom_nav{
-    display: none;
+    /* display: none; */
     position: fixed;
     bottom:0px;
     left:0px;
@@ -629,9 +630,31 @@ html,body{
     display: inline-block;
     height:60px;
     width:60px;
-    margin-top:-5px;
+    margin-top:-18px;
     margin-left: -60px;
     z-index: 5;
+}
+.searchpage .tipword{
+    width:100%;
+    position: absolute;
+    top:210px;
+    left:0px;
+}
+.searchpage .tipword>i{
+    position: relative;
+    display: block;
+    font: 600 30px/80px serif;
+    border-bottom: solid 1px #555;
+    width: 530px;
+    padding-left: 50px;
+    margin-left: 84px;
+}
+.searchpage .tipword>i::before{
+    content: url(./img/search2.png);
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    margin-right: 85px;
 }
 /* 订单 */
 .orderpage{
@@ -1043,13 +1066,14 @@ html,body{
 }
 /* 收藏夹 */
 .selfpage .partthree .like_list{
-    display: none;
+    /* display: none; */
 }
 /* 历史记录 */
 .selfpage .partthree .history_list{
     display: none;
 }
 .selfpage .partthree .myinfor{
+    display: none;
     padding: 0px 25px;
 }
 .selfpage .partthree .myinfor .infor_nav{
@@ -1075,16 +1099,58 @@ html,body{
     text-align: left;
     display: inline-block;
  }
-.selfpage .partthree .myinfor i{
-    font:700 25px/35px serif;
-    color:#333;
+ .selfpage .partthree .myinfor .my_password,
+ .selfpage .partthree .myinfor .contact{
+     display: none;
+ }
+ .selfpage .partthree .myinfor .contact img{
     display: inline-block;
-    width:200px;
+    width:455px;
+    position: relative;
+}
+.selfpage .partthree .myinfor .show_infor .contact span{
+    background-color: rgba(53, 155, 250, 0.5);
+    font: 600 35px/50px serif;
+    width:410px;
+    color: #FFF;
+    display: inline-block;
+    border-radius: 16px;
+    margin-left: 23px;
+}
+.selfpage .partthree .myinfor .show_infor .contact>a{
+    background-color: rgba(53, 155, 250, 0.5);
+    font: 600 35px/50px serif;
+    color: #FFF;
+    display: inline-block;
+    border-radius: 16px;
+    margin: 10px 0 10px 23px;
+}
+.selfpage .partthree .myinfor .show_infor .contact>a span{
+    box-sizing: border-box;
+    background:url(./img/call.png)left no-repeat;
+    padding-left: 40px;
+    margin: 0px;
+
+}
+.selfpage .partthree .myinfor i{
+    font:700 30px/45px serif;
+    color:#333;
+    display: block;
     text-align: left;
 }
-.selfpage .partthree .myinfor textarea,
+.selfpage .partthree .myinfor textarea{
+    font:700 28px/48px serif;
+    color:#333;
+    display: inline-block;
+    width:360px;
+    outline: none;
+    border-radius: 10px;
+    border: solid 1px #333;
+    height:150px;
+    margin: 30px 0px 10px;
+}
 .selfpage .partthree .myinfor input{
-    font:700 25px/55px serif;
+    font:700 28px/48px serif;
     color:#333;
     display: inline-block;
     width:360px;
@@ -1105,25 +1171,28 @@ html,body{
     background-color: #f40;
 }
 .goods_page{
+    box-sizing: border-box;
+    padding: 0px 20px;
     width:750px;
     min-height: 100%;
     position: absolute;
     top:0px;
     left:0px;
+    background-color: #FFF;
     z-index: 20;
 }
 .goods_page .swiper-container2{
-    widows: 100%;
+    width: 100%;
     height: 450px;
 }
 .swiper-container2{
-    width:750px;
+    width:100%;
     height:400px;
     position: relative;
     overflow: hidden;
 }
 .swiper-container2 .swiper-slide img{
-    width:750px;
+    widows: 100%;
     height:100%;
 }
 .swiper-container2 .swiper-pagination2{
@@ -1148,11 +1217,6 @@ html,body{
     border-radius: 10px;
     opacity: 0.90;
 }
-.goods_page{
-    width:750px;
-    min-height: 100%;
-    background: #fff;
-}
 .goods_page .back{
     display: inline-block;
     padding: 5px 0 0 5px;
@@ -1160,7 +1224,7 @@ html,body{
     font-weight: 300;
     position: absolute;
     top:20px;
-    left:20px;
+    left:40px;
     color:#fff;
     width:45px;
     height:45px;
@@ -1172,7 +1236,7 @@ html,body{
     display: inline-block;
     position: absolute;
     top:20px;
-    right:20px;
+    right:40px;
     color:#fff;
     width:50px;
     height:50px;
@@ -1182,48 +1246,75 @@ html,body{
 }
 .goods_page .intorduce{
     width: 100%;
-    padding: 30px 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
     background-color: #fff;
-    box-shadow: 2px 2px 8px #999;
+    box-shadow: 0px 2px 8px #999;
 }
 .goods_page .intorduce .money{
+    display: inline-block;
     font: 800 45px/50px serif;
     color: #f40;
     padding: 5px 10px;
     box-sizing: border-box;
     background-color: #fff;
+    margin-right: 30px;
 }
 .goods_page .intorduce .money>img{
     width:30px;
-    margin: 0px 10px 10px 0;
+    margin: 0px  10px 5px 0;
+
+}
+.goods_page .intorduce .like{
+    position: relative;
+    display: inline-block;
+    font: 800 38px/50px serif;
+    color: #f40;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.goods_page .intorduce .like img{
+    width:34px;
+    vertical-align: middle;
+    padding-bottom: 6px;
+}
+.goods_page .intorduce .like::after{
+    content: '收藏';
+    font: 600 33px/35px serif;
+    width: 90px;
+    height: 34px;
+    position: absolute;
+    bottom: 10px;
+    right: -85px;
 }
 .goods_page .intorduce .title{
-    font: 900 32px/38px serif;
+    font: 900 32px/60px serif;
     color: #000;
     letter-spacing: -1px;
 }
 .goods_page .show_goods,
 .goods_page .show_goods img{
-    width:750px;
+    width:100%;
     font-size: 0px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 .goods_page .show_goods img:nth-last-of-type(1){
-    margin-bottom: 315px;
+    margin-bottom: 165px;
 }
 .goods_page .buy{
     position: fixed;
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: 315px;
     padding: 10px 10px;
     box-sizing: border-box;
     background-color: #fff;
     box-shadow: 2px 2px 8px #999;
 }
 .goods_page .buy>h4{
-    font: bold 28px/60px serif;
+    font: bold 32px/50px serif;
     color: #000;
 }
 .goods_page .buy>i{
@@ -1238,7 +1329,7 @@ html,body{
 .goods_page .buy .num_box{
     position: absolute;
     right: 170px;
-    top: 75px;
+    top: 15px;
     display: inline-block;
     border: solid 1px #ccc;
     border-radius: 6px;
@@ -1264,7 +1355,7 @@ html,body{
 .goods_page .buy .residue{
     position: absolute;
     right: 5px;
-    top: 80px;
+    top: 20px;
     display: inline-block;
     color: #333;
     width: 150px;
@@ -1273,8 +1364,7 @@ html,body{
 }
 .goods_page .buy .butbox{
     widows: 100%;
-    padding: 30px;
-    margin-top: 30px;
+    padding: 10px 30px;
 }
 .goods_page .buy .butbox .likethis{
     padding-top: 50px;
@@ -1300,4 +1390,34 @@ html,body{
     border: solid 1px #f40;
     border-radius: 40px;
     margin-left: 50px;
+}
+.sharepage{
+    display: none;
+    font-size: 0px;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width:100%;
+    height: 100%;
+    background: url(./img/sharebj.png);
+    background-size: 100% 100%;
+    z-index: 25;
+}
+.sharepage>img{
+    position: absolute;
+    top:20px;
+    left: 560px;
+    animation: shareanim 2s linear infinite;
+}
+@keyframes shareanim{
+    0%{
+        transform: translate(0px,0px) scale(0.9);
+    }
+    50%{
+        transform: translate(10px,-10px) scale(0.83);
+
+    }
+    100%{
+        transform: translate(0px,0px) scale(0.9);
+    }
 }

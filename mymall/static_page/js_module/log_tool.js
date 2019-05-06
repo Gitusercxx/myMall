@@ -1,4 +1,5 @@
 define(['tools'],function(tools) {
+   console.log('log')
    var checkval = tools.checkval;
    var ajax = tools.ajax;
     
@@ -11,8 +12,7 @@ define(['tools'],function(tools) {
             },
             closelog: function () {
                $('.login_page').add('.logbj').css('display', 'none');
-               $('.indexpage').add('.head').add('.bottom_nav').css('display', 'block');
-               swiper();
+               // $('.indexpage').add('.head').add('.bottom_nav').css('display', 'block');
             },
             log: function () {
                $('.log_box').css('display', 'block');
@@ -41,6 +41,7 @@ define(['tools'],function(tools) {
                var pass_answer = $('.pass_answer').val();
                if (checkval(tel, 'tel') && checkval(password, 'password') && checkval(pass_answer, 'pass_answer')) {
                   var obj = { _id: tel, password: password, pass_question: pass_question, pass_answer: pass_answer }
+                  sessionStorage.setItem('userdat',JSON.stringify(obj));
                   console.log(obj);
                   ajax('/userreg', 'POST', obj, log_tool.regsuccess)
                }
@@ -52,7 +53,9 @@ define(['tools'],function(tools) {
                      localStorage.setItem('malluser', $('.log_tel').val() + '-' + $('.log_password').val())
                   } else {
                      localStorage.setItem('malluser', $('.log_tel').val());
-                  }
+                  };
+                  sessionStorage.setItem('userdat',JSON.stringify(dat));
+                  sessionStorage.setItem('recordlog','yes');
                   log_tool.closelog();
       
                } else if (dat == 'password_mistake') {
@@ -65,6 +68,7 @@ define(['tools'],function(tools) {
             regsuccess: function (d) {
                var regdat = JSON.parse(d);
                if (regdat[0] == 'reg_success') {
+                  sessionStorage.setItem('recordlog','yes');
                   log_tool.closelog();
                } else if (regdat[0] == 'reg_fail_repeat') {
                   alert('该账户已注册');
@@ -92,12 +96,12 @@ define(['tools'],function(tools) {
                }
             },
             show_question: function (d) {
-               var userinfor = JSON.parse(d);
+               var userinfor = JSON.parse(d)[0];
                console.log(userinfor)
-               if (userinfor[0] == 'unregistered') {
+               if (userinfor == 'unregistered') {
                   alert('该账户未注册');
                } else {
-                  var str = '<h5 class="puestion_tit">密保问题验证:' + userinfor[0].pass_question + '?</h5>' +
+                  var str = '<h5 class="puestion_tit">密保问题验证:' + userinfor.pass_question + '?</h5>' +
                      '<input type="text" placeholder="输入密保答案(必填)" class="answer">' +
                      '<input type="password" class="changepass" placeholder="输入新密码">' +
                      '<input type="password" class="change_pass" placeholder="确认密码">' +
@@ -109,8 +113,10 @@ define(['tools'],function(tools) {
                      var answer = $('.answer').val();
                      if (checkval(changepass, 'password')) {
                         if (changepass == change_pass) {
-                           if (answer == userinfor[0].pass_answer) {
-                              ajax('/changepass', 'POST', { _id: userinfor[0]._id, password: changepass }, log_tool.change_sucess);
+                           if (answer == userinfor.pass_answer) {
+                              userinfor.password = changepass;
+                              sessionStorage.setItem('userdat',JSON.stringify(userinfor));
+                              ajax('/changepass', 'POST', { _id: userinfor._id, password: changepass }, log_tool.change_sucess);
                            } else {
                               alert('密保验证失败');
                            }
@@ -131,6 +137,7 @@ define(['tools'],function(tools) {
                console.log(result);
                if (result.ok) {
                   alert('修改成功,请妥善保管密码');
+                  sessionStorage.setItem('recordlog','yes');
                   log_tool.closelog();
                }
             },

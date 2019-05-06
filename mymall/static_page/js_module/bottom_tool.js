@@ -19,19 +19,28 @@ let bottom_tool = {
        }
     },
     show_order: function () {
-       if (bottom_tool.show != 'orderpage') {
-          $('.locate').css('left', '445px');
-          $('.' + bottom_tool.show).fadeOut(100);
-          $('.orderpage').fadeIn(200);
-          bottom_tool.show = 'orderpage';
+       if(sessionStorage.getItem('recordlog') == 'yes'){
+         if (bottom_tool.show != 'orderpage') {
+            $('.locate').css('left', '445px');
+            $('.' + bottom_tool.show).fadeOut(100);
+            $('.orderpage').fadeIn(200);
+            bottom_tool.show = 'orderpage';
+         }
+       }else{
+         $('.login_page').add('.logbj').css('display', 'block');
        }
+       
     },
     show_self: function () {
-       if (bottom_tool.show != 'selfpage') {
-          $('.locate').css('left', '625px');
-          $('.' + bottom_tool.show).fadeOut(100);
-          $('.selfpage').fadeIn(200);
-          bottom_tool.show = 'selfpage';
+      if(sessionStorage.getItem('recordlog') == 'yes'){
+         if (bottom_tool.show != 'selfpage') {
+            $('.locate').css('left', '625px');
+            $('.' + bottom_tool.show).fadeOut(100);
+            $('.selfpage').fadeIn(200);
+            bottom_tool.show = 'selfpage';
+         }
+      }else{
+         $('.login_page').add('.logbj').css('display', 'block');
        }
     }
  }
