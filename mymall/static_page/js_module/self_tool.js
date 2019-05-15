@@ -13,15 +13,15 @@ define(['tools'], function(tools) {
        },
        addresssub:function(){
            var userdat = self_tool.userdat();
-           var people = $('.my_address .a').val();
+           var person = $('.my_address .a').val();
            var tel = $('.my_address .b').val();
            var addr = $('.my_address textarea').val();
-           if(tools.checkval(tel,'tel')&&tools.checkval(people,'text')&&tools.checkval(addr,'text')){
+           if(tools.checkval(tel,'tel')&&tools.checkval(person,'text')&&tools.checkval(addr,'text')){
                 userdat.phone = tel;
                 userdat.address = addr;
                 userdat.person = person;
                 sessionStorage.setItem('userdat',JSON.stringify(userdat));
-               ajax('/change','POST',{id:userdat._id,change:{person:people,phone:tel,address:addr}},function(){
+               ajax('/change','POST',{id:userdat._id,change:{person:person,phone:tel,address:addr}},function(){
                    alert('地址提交成功！');
                 })
            }
@@ -47,16 +47,33 @@ define(['tools'], function(tools) {
            }
            $('.my_password .a').val()
        },
-       advice:function(){
-           var id = self_tool.userdat()._id;
-           var advice = $('.advice textarea').val();
-           if(tools.checkval(advice,'text')){
-            ajax('/advice','POST',{"_id":id,advice},function(){
-                alert('提交成功！');
-                $('.advice textarea').val('');
-             })
-           }
-       }
+      getlike:function(){
+          var likestr = '';
+          var likelist = self_tool.userdat().like;
+          console.log(likelist)
+          for(var i=0;i<likelist.length;i++){
+              var allgoods = JSON.parse(sessionStorage.getItem('allgoods'));
+              var likearr = allgoods.filter(function(ele){
+                    return (ele._id == likelist[i])
+              })[0]
+              console.log(likearr)
+              likestr += '<li number="'+ likearr._id +'"><img src="./img/'+ likearr.image[0] +'"><p>'+ likearr.name +'</p><span class="like">'+ likearr.like +'</span><span class="price">'+ likearr.price +'</span></li>'
+          }
+          $('.like_list').html(likestr);
+      },
+      gethistory:function(){
+        var historystr = '';
+        var historylist = self_tool.userdat().historylist;
+        for(var i=0;i<historylist.length;i++){
+            var allgoods = JSON.parse(sessionStorage.getItem('allgoods'));
+            var historyarr = allgoods.filter(function(ele){
+                  return (ele._id == historylist[i])
+            })[0]
+
+            historystr += '<li number="'+ historyarr._id +'"><img src="./img/'+ historyarr.image[0] +'"><p>'+ historyarr.name +'</p><span class="like">'+ historyarr.like +'</span><span class="price">'+ historyarr.price +'</span></li>'
+        }
+        $('.history_list').html(historystr);
+    }
    }
     return self_tool;
 });

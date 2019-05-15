@@ -102,51 +102,33 @@
 <!-- 订单 -->
 <div class="orderpage">
   <div class="order_nav">
-    <span class="payorder">已付款</span><span class="not_payorder act">未付款</span> 
+    <span class="payorder">已提交</span><span class="not_payorder act">未提交</span> 
   </div>
   <!-- 已付款 -->
-  <ul class="pay">
-    <li num="001">
-      <img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="price">10</span><span class="moreinfor">更多信息</span>
-      <div class="showmore">
-        <p class="data">2019/04/05</p>
-        <div class="kuaidi"><span class="send">韵达快递</span><span class="send_infor">1237897478</span></div>
-      </div></li>
-    <li num="002"><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="price">22</span><span class="moreinfor">更多信息</span></li>
-  </ul>
+  <div class="paybox">
+    <!-- <ul class="pay">
+      <h5 class="order_number">单号：158400648632019051615</h5>
+      <li number="001" obj=''>
+        <img src="./img/lb02.jpg">
+        <p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="price">10</span>
+        <span class="attr">大一</span><span class="num_box">*2</span>
+      </li>
+      <li num="002"><img src="./img/lb01.jpg">
+        <p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="price">22</span><span class="moreinfor">更多信息</span>
+      </li>
+    </ul> -->
+  </div>
+  
   <!-- 未付款 -->
+ 
   <ul class="wait_pay">
-    <li num="001">
+    <!-- <li number="001" obj=''>
       <span class="glyphicon glyphicon-trash delete"></span>
       <img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="price">10</span>
-      <span class="num_box"><i class="red">-</i><i class="num">2</i><i class="add">+</i></span>
-    </li>
+      <span class="attr">大一</span><span class="num_box"><i class="red">-</i><i class="num">2</i><i class="add">+</i></span>
+    </li> -->
     <div class="deal_order">
       <sapn class="sub_order"><i class="glyphicon glyphicon-ok"></i> 提交订单</sapn>
-    </div>
-    <div class="order_infor">
-        <!-- <p><i class="glyphicon glyphicon-ok"></i>订单已提交</p>
-        <h5>复制下列订单号找店主小哥交款哦~</h5> -->
-        <!-- <h6></h6> -->
-        <h2 class="">请确认订单信息：</h2>
-        <div class="receive">
-          <i>收件人：</i><input type="text">
-          <i>联系电话：</i><input type="tel">
-          <i>收件地址：</i><textarea></textarea>
-        </div>
-        <div class="sum">
-          <i>商品合计：</i> <span class="goods">52</span>
-          <i>快递费：</i> <span class="courier">16</span>
-          <i>总合计：</i> <span class="all_sum">68</sapn>
-        </div>
-        <span class="sub_but">确认提交</span>
-        <div class="order_ok">
-          <p><span class="glyphicon glyphicon-ok"></span>订单已提交</p>
-          <h5>复制下列订单号找店主小哥交款哦~</h5>
-          <h6>158400648638988889</h6>
-          <img src="./img/ewm.jpg">
-          <span class="callme">微信号：cxx251x<br>QQ：2793146616</span>
-        </div>
     </div>
 </ul>
 </div>
@@ -193,12 +175,10 @@
       
     </div>
     <ul class="list like_list">
-        <li><img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">12</span><span class="price">10</span></li>
-        <li><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">2</span><span class="price">20</span></li>
+        <!-- 收藏夹 -->
     </ul>
     <ul class="list history_list">
-        <li><img src="./img/lb02.jpg"><p>二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">12</span><span class="price">10</span></li>
-        <li><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">2</span><span class="price">20</span></li>
+        <!-- 历史记录 -->
     </ul>
   </div>
 </div>
@@ -209,6 +189,26 @@
   <div class="search"><img  src="./img/search.png" alt="搜索">搜索</div> 
   <div class="order"><img src="./img/order.png" alt="订单"><span class="order_num">2</span>订单</div>
   <div class="self"><img src="./img/self.png" alt="个人中心">个人中心</div> 
+</div>
+<div class="order_infor">
+  <img class="close_order_infor" src="./img/close.png" alt="关闭">
+  <h2 class="">请确认订单信息：</h2>
+  <div class="receive">
+    <i>收件人：</i><input class="a" type="text">
+    <i>联系电话：</i><input class="b" type="tel">
+    <i>收件地址：</i><textarea></textarea>
+  </div>
+  <div class="sum">
+    <i>商品合计：</i> <span class="goods">52</span>
+  </div>
+  <span class="sub_but">确认提交</span>
+  <div class="order_ok">
+    <p><span class="glyphicon glyphicon-ok"></span>订单已提交</p>
+    <单号：158400648632019051615复制下列订单号找店主小哥交款哦~</h5>
+    <h6>158400648638988889</h6>
+    <img src="./img/ewm.jpg">
+    <span class="callme">微信号：cxx251x<br>QQ：2793146616</span>
+  </div>
 </div>
 <!-- <div class="goods_page">
   <div class="swiper-container2">

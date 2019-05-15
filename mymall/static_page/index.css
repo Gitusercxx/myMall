@@ -2,7 +2,7 @@ p,div,h1,h2,h3,h4,h5,ul,li,span,img{
     padding: 0px;
     margin:0px;
     list-style: none;
-
+    box-sizing: border-box;
 }
 html,body{
     overflow-x: hidden;
@@ -306,10 +306,10 @@ html,body{
     /* display: none; */
     box-sizing: border-box;
     padding: 10px 10px 0 20px;
-    /* background:rgb(80, 177, 233); */
+    background: rgb(116, 182, 237);
     widows: 750px;
     height:125px;
-    color: rgb(2, 2, 2);
+    color: #fff;
     position: relative;
 }
 .head .name{
@@ -338,11 +338,11 @@ html,body{
     box-sizing: border-box;
     padding: 20px;
     font: normal 500 30px/40px serif;
-    background: rgba(241, 241, 241, 0.733);
+    background: rgba(51, 126, 179, 0.733);
     z-index: 3;
 }
 .head .star{
-    color: rgb(3, 3, 3);
+    color: #fff;
     font: normal 35px/40px serif;
     display: inline-block;
     height: 40px;
@@ -441,9 +441,9 @@ html,body{
     box-shadow: 0 0 8px #999;
     display: inline-block;
     text-align: center;
-    font: bolder 100px/200px serif;
+    font: bolder 70px/200px serif;
     color: #fff;
-    background: url(./img/lb6.jpg) no-repeat;
+    background: url(./img/cup01.jpg) no-repeat;
     background-size: 100% 100%;
 }
 .active .act1{
@@ -684,138 +684,88 @@ html,body{
     border-bottom: solid 4px #f40;
 }
 /* 已付款 */
-.pay{
+.paybox{
+    margin-bottom: 130px;
     display: none;
-    width:700px;
-    margin:10px 0 25px 25px;
 }
-.pay>li {
-    width:100%;
-    height: 200px;
-    position: relative;
-}
-.pay>li img{
+.pay{
+    width: 700px;
+    margin: 10px 0 5px 25px;
+    border: solid 1px rgb(131, 131, 131);
     border-radius: 20px;
-    width:300px;
-    height: 180px;
+}
+.pay .num_box{
+    width: 80px;
+    letter-spacing: 5px;
     display: inline-block;
-    margin-right: 15px;
-}
-.pay>li p{
-    font: normal 500 28px/32px serif;
-    width:380px;
-    height: 80px;
-    display: inline-block;
-    vertical-align: top;
-}
-.pay>li span{
-    width:50px;
-    display: inline-block;
-    font: normal 500 30px/35px serif;
-}
-.pay>li .moreinfor{
-    width:160px;
+    font: normal 600 38px/40px serif;
     position: absolute;
-    bottom: 40px;
-    right: 0px;
-}
-.pay>li .moreinfor::after{
-    content: url(./img/moreinfor.png);
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    bottom: 5px;
-    left: -40px;
-}
-.pay>li .price{
-    position: absolute;
-    bottom: 40px;
-    right: 300px;
+    bottom: 35px;
+    right: 25px;
     color: #f40;
 }
-.pay>li .price::before{
-    content: url(./img/money.png);
-    color:#f40;
-    position: absolute;
-    bottom: 0px;
-    right: 55px;
+.pay .order_number{
+    padding: 10px;
+    display: block;
+    font: normal 600 32px/40px serif;
+    color: rgb(39, 39, 38);
 }
-.pay .showmore{
-    padding: 10px 10px;
-    width:400px;
-    height:170px;
-    transition: all 1s;
-    position: absolute;
-    right:-450px;
-    top:0;
-    background: #FFF;
-}
-.pay .showmore .data{
-    position: relative;
-    left:37px;
-    width:200px;
-    height:70px;
-}
-.pay .showmore .data::after{
-    content: url(./img/date.png);
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    bottom: 40px;
-    left: -38px;
-}
-.pay .showmore .kuaidi .send{
-    display:block;
-    width:300px;
-    font:700 25px/40px;
-}
-.pay .showmore .kuaidi .send_infor{
-    font:500 20px/30px;
-}
+
 /* 未付款 */
 .wait_pay{
     width:700px;
     margin:10px 0 25px 25px;
 }
-.wait_pay>li {
+.pay>li,.wait_pay>li {
     width:100%;
     height: 200px;
     position: relative;
 }
-.wait_pay>li img{
+.pay>li img,.wait_pay>li img{
     border-radius: 20px;
     width:260px;
     height: 180px;
     display: inline-block;
     margin: 0 15px;
 }
-.wait_pay>li p{
+.pay>li p,.wait_pay>li p{
     font: normal 500 28px/32px serif;
     width:360px;
     height: 80px;
     display: inline-block;
     vertical-align: top;
 }
-.wait_pay>li .delete{
+.pay>li .delete,.wait_pay>li .delete{
     font-size: 30px;
     color:#f40;
 }
-.wait_pay>li .price{
+.pay>li .attr,.wait_pay>li .attr{
+    width: 130px;
+    text-align: center;
+    display: inline-block;
+    font: normal 600 25px/35px serif;
+    position: absolute;
+    bottom: 35px;
+    right: 180px;
+    color: #f40;
+}
+.pay>li .price,.wait_pay>li .price{
     width:50px;
     display: inline-block;
-    font: normal 500 30px/35px serif;
+    font: normal 600 32px/35px serif;
     position: absolute;
     bottom: 40px;
     right: 300px;
     color: #f40;
 }
-.wait_pay>li .price::before{
+.pay>li .price::before,.wait_pay>li .price::before{
     content: url(./img/money.png);
     color:#f40;
     position: absolute;
     bottom: 0px;
     right: 55px;
 }
+
 .wait_pay .num_box{
     display: inline-block;
     border: solid 1px #ccc;
@@ -864,38 +814,47 @@ html,body{
     color: #f40;
     text-align: center;
 }
-.wait_pay .order_infor{
+/* 提交购买 */
+.order_infor{
     display: none;
     background-color: #FFF;
     padding: 10px 20px;
     width:750px;
     height:100%;
-    padding-top: 20px;
+    padding-top: 100px;
     margin-left:0px;
     position: fixed;
     top:0px;
     left: 0px;
     color:#333;
     font:600 28px/35px serif;
+    z-index: 30;
 }
-.wait_pay .order_infor h2{
+.order_infor .close_order_infor{
+    opacity: 0.8;
+    width:80px;
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.order_infor h2{
     width:100%;
     text-align: center;
     font:800 35px/60px serif;
 }
-.wait_pay .order_infor i {
+.order_infor i {
     width: 140px;
     font: 600 25px/70px serif;
     display: inline-block;
     color: #333;
 }
-.wait_pay .order_infor .receive{
+.order_infor .receive{
     width:410px;
     font:600 30px/35px serif;
     display: inline-block;
     margin-right: 50px;
 }
-.wait_pay .order_infor input{
+.order_infor input{
     outline-style: none;
     width:200px;
     height:50px;
@@ -904,7 +863,7 @@ html,body{
     font:600 30px/35px serif;
     display: inline-block;
 }
-.wait_pay .order_infor textarea{
+.order_infor textarea{
     outline-style: none;
     width:340px;
     height:80px;
@@ -914,19 +873,19 @@ html,body{
     display: inline-block;
     vertical-align: top;
 }
-.wait_pay .order_infor .sum{
+.order_infor .sum{
     width:230px;
     display: inline-block;
     font-size: 0px;
     vertical-align: top;
 }
-.wait_pay .order_infor .sum span{
+.order_infor .sum span{
     width:70px;
     font:600 30px/35px serif;
     display: inline-block;
     color:#f40;
 }
-.wait_pay .order_infor .sub_but{
+.order_infor .sub_but{
     width: 180px;
     height: 60px;
     border: solid 1px #f40;
@@ -938,31 +897,32 @@ html,body{
     text-align: center;
     position: absolute;
     right: 80px;
-    top: 315px;
+    top: 415px;
 }
-.wait_pay .order_infor .order_ok{
+.order_infor .order_ok{
+    display: none;
     width:100%;
     text-align: center;
     margin-top: 100px;
 }
-.wait_pay .order_infor .order_ok p{
+.order_infor .order_ok p{
     width:100%;
     color: #f40;
     font:800 35px/60px serif;
     text-align: center;
 }
-.wait_pay .order_infor .order_ok h6,
-.wait_pay .order_infor .order_ok h5{
+.order_infor .order_ok h6,
+.order_infor .order_ok h5{
     width:100%;
     color: #333;
     font:800 28px/50px serif;
 }
-.wait_pay .order_infor .order_ok img{
+.order_infor .order_ok img{
     width:200px;
     display: inline-block;
     margin-top:20px;
 }
-.wait_pay .order_infor .order_ok .callme{
+.order_infor .order_ok .callme{
     width:280px;
     margin-left: -30px;
     display: inline-block;
@@ -1066,11 +1026,13 @@ html,body{
 }
 /* 收藏夹 */
 .selfpage .partthree .like_list{
+    margin-bottom: 115px;
     /* display: none; */
 }
 /* 历史记录 */
 .selfpage .partthree .history_list{
     display: none;
+    margin-bottom: 130px;
 }
 .selfpage .partthree .myinfor{
     display: none;
@@ -1326,6 +1288,11 @@ html,body{
     text-align: center;
     margin: 10px;
 }
+.goods_page .buy .g_attr.act{
+    border: solid 1px #f40;
+    color: #f40;
+    
+}
 .goods_page .buy .num_box{
     position: absolute;
     right: 170px;
@@ -1376,6 +1343,9 @@ html,body{
     width: 100px;
     height: 80px;
     background: url(./img/like1.png) center top no-repeat;
+}
+.goods_page .buy .butbox .likethis.act{
+    background: url(./img/like2.png) center top no-repeat;
 }
 .goods_page .buy .butbox .buythis,
 .goods_page .buy .butbox .addorder{

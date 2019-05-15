@@ -92,11 +92,59 @@ function postmethods(req,res){
                 }
             }
             break;
-        case '/advice':
+        case '/buy':
             var dat = req.body;
-            console.log(dat)
-            db_Operation.add('advicetable',dat,advice);
-            function advice(err,result){
+            var goods = dat.goods;
+            var obj = {id:dat.id,change:['buy',{ordernumber:dat.ordernumber,goods:goods,address:dat.address}]};
+            for (let i = 0; i < goods.length; i++) {
+                db_Operation.read('goods', { "_id": goods[i].number }, function (err, result) {
+                    var residue = parseInt(result[0].residue) - parseInt(goods[i].num);
+                    if(residue >= 0){
+                        db_Operation.change('goods', { id: goods[i].number, change: { residue } }, function (err, result) {});
+                        if(i == goods.length-1){
+                            addbuy();
+                        }
+                    }else{
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end('抱歉,第'+ (i+1) +'款商品库存不足');
+                    }
+                });
+
+            }
+            function addbuy(){
+                db_Operation.changeArr('user',obj,buy);
+                function buy(err, result) {
+                    if (err) {
+                        res.writeHead(500, { 'Content-Type': 'text/html' });
+                        res.end(err.toString());
+                    } else {
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end(JSON.stringify(result));
+                    }
+                }
+            }
+
+
+            
+            break;
+            case '/order':
+            var dat = req.body;
+            var obj = {id:dat.id,control:dat.control,change:['order',dat.goods]}
+            db_Operation.changeArr('user',obj,addorder);
+            function addorder(err,result){
+                if(err){
+                    res.writeHead(500,{ 'Content-Type': 'text/html'});
+                    res.end(err.toString());
+                }else{
+                    res.writeHead(200,{ 'Content-Type': 'text/html'});
+                    res.end(JSON.stringify(result));
+                }
+            }
+            break;
+            case '/history':
+            var dat = req.body;
+            db_Operation.change('user',{id:dat.id,change:dat.change},history);
+            function history(err,result){
                 if(err){
                     res.writeHead(500,{ 'Content-Type': 'text/html'});
                     res.end(err.toString());
