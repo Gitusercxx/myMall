@@ -52,7 +52,6 @@ var db_Operation = {
                 var id = data.id;
                 var changedat = data.change
                 var basepath = db.db('myMall');
-                console.log({'_id':id},{$set: changedat})
                 basepath.collection(collection).updateOne({'_id':id},{$set: changedat},function(err,result){
                     fn(err,result);
                 });

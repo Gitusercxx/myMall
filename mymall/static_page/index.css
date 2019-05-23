@@ -766,33 +766,18 @@ html,body{
     right: 55px;
 }
 
-.wait_pay .num_box{
+.wait_pay .num_box,  
+.pay .num_box{
+    width: 80px;
+    letter-spacing: 5px;
     display: inline-block;
-    border: solid 1px #ccc;
-    border-radius: 6px;
-    color: #333;
-    width: 150px;
-    height: 45px;
+    font: normal 600 38px/40px serif;
     position: absolute;
+    bottom: 35px;
     right: 25px;
-    bottom: 33px;
-    background: #FFF;
+    color: #f40;
 }
-.wait_pay .num_box i{
-    display: inline-block;
-    text-align: center;
-    font: 600 25px/42px serif;
-    width: 40px;
-    color: #555;
-    background:#ddd;
-}
-.wait_pay .num_box i.num{
-    color: #333;
-    background:rgb(241, 241, 241);
-    font: 800 28px/42px serif;
-    width: 68px;
-}
-.wait_pay .deal_order{
+.orderpage .deal_order{
     width:700px;
     height:80px;
     padding-top: 20px;
@@ -802,7 +787,7 @@ html,body{
     bottom:107px;
     left: 0px;
 }
-.wait_pay .deal_order .sub_order{
+.orderpage .deal_order .sub_order{
     margin-left: 200px;
     width: 300px;
     height: 60px;

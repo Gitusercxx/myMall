@@ -105,6 +105,7 @@ function postmethods(req,res){
                             addbuy();
                         }
                     }else{
+                        console.log(result)
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.end('抱歉,第'+ (i+1) +'款商品库存不足');
                     }

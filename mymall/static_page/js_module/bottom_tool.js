@@ -46,15 +46,14 @@ let bottom_tool = {
             var goods = allgoods.filter(function(ele){
                return (ele._id == order[i].number)
             })[0]
-            orderstr += `<li number="${order[i].number}" obj="${JSON.stringify(order[i])}">
+            orderstr += `<li number="${order[i].number}" obj='${JSON.stringify(order[i])}'>
             <span class="glyphicon glyphicon-trash delete"></span>
             <img src="./img/${goods.image[0]}"><p>${goods.name}</p><span class="price">${goods.price}</span>
-            <span class="attr">${order[i].attr || ''}</span><span class="num_box"><i class="red">-</i><i class="num">${order[i].num}</i><i class="add">+</i></span>
-            </li>`
+            <span class="attr">${order[i].attr || ''}</span><span class="num_box">*${order[i].num}</span></li>`
          }
          $('.wait_pay').html(orderstr);
          for(var n=0;n<buy.length;n++){
-            buystr = `<h5 class="order_number">单号：${buy[i].ordernumber}</h5>`
+            buystr = `<h5 class="order_number">单号：${buy[n].ordernumber}</h5>`
             var goodsarr = buy[n].goods;
             for(var k=0;k<goodsarr.length;k++){
                var goods = allgoods.filter(function(ele){
@@ -66,9 +65,20 @@ let bottom_tool = {
             }
             $('.paybox').append('<ul class="pay">'+buystr+'</ul>')
          }
+         $('.delete').on('click',bottom_tool.delorder)
        }
     },
-    
+    delorder:function(e){
+       var that = this;
+      e.stopPropagation();
+      var id =bottom_tool.userdat()._id; 
+      var delgoods = JSON.parse($(this).parent('li').attr('obj'));
+      console.log(delgoods)
+     var control = 'del';
+     var order ={id,goods:delgoods,control};
+     console.log(order)
+     ajax('/order','POST',order,function(dat){$(that).parent('li').remove()});
+     },
     show_self: function () {
       if(sessionStorage.getItem('recordlog') == 'yes'){
          if (bottom_tool.show != 'selfpage') {

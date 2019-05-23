@@ -8,10 +8,10 @@ define(['tools'],function(tools) {
            var words = $(this).text();
            if (words == '已提交') {
               $('.paybox').css('display', 'block');
-              $('.wait_pay').css('display', 'none');
+              $('.wait_pay').add('.deal_order').css('display', 'none');
               $('.not_payorder').removeClass('act');
            } else {
-              $('.wait_pay').css('display', 'block');
+              $('.wait_pay').add('.deal_order').css('display', 'block');
               $('.paybox').css('display', 'none');
               $('.payorder').removeClass('act');
            }
@@ -36,6 +36,24 @@ define(['tools'],function(tools) {
         console.log(order)
         ajax('/order','POST',order,function(dat){alert('成功加入订单！')});
 
+        },
+        sub_order:function(){
+            var userdat = order_tool.userdat();
+            var list = $('.wait_pay li');
+            var goods = [];
+            var allprice = 0;
+            for(var i=0;i<list.length;i++){
+               var obj = JSON.parse($(list[i]).attr('obj'))
+               goods.push(obj);
+               var price = parseInt($(list[i]).children('.price').text())*parseInt(obj.num);
+               allprice += price; 
+            }
+            $('.order_infor input.a').val(userdat.person || '');
+            $('.order_infor input.b').val(userdat.phone || '');
+            $('.order_infor textarea').val(userdat.address || '');
+            $('.order_infor .goods').text(allprice);
+            $('.order_infor').css('display','block'); 
+            sessionStorage.setItem('order_goods',JSON.stringify(goods));
         },
         sub_but:function(){
            var person = $('.order_infor input.a').val();

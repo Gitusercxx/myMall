@@ -79,6 +79,7 @@ $('.index_list').html(rec_list)
    $('.order_infor .sub_but').on('click',order_tool.sub_but);
    $('.order_infor .close_order_infor').on('click',order_tool.close_order_infor)
    $('.wait_pay .delete').on('click',order_tool.delorder)
+   $('.sub_order').on('click',order_tool.sub_order)
    $('.self').on('click', function(){bottom_tool.show_self();self_tool.getlike();self_tool.gethistory()} );
    
    $('.parttwo').on('click','span',self_tool.partchange);
