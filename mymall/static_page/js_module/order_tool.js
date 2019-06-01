@@ -54,8 +54,10 @@ define(['tools'],function(tools) {
             $('.order_infor .goods').text(allprice);
             $('.order_infor').css('display','block'); 
             sessionStorage.setItem('order_goods',JSON.stringify(goods));
+            sessionStorage.setItem('del_order','yes');
         },
         sub_but:function(){
+           var id = order_tool.userdat()._id;
            var person = $('.order_infor input.a').val();
            var phone = $('.order_infor input.b').val();
            var address = $('.order_infor textarea').val();
@@ -64,16 +66,22 @@ define(['tools'],function(tools) {
             var y = date.getFullYear();
             var m = date.getMonth() > 8 ? date.getMonth()+1 : '0'+(date.getMonth()+1);
             var d = date.getDate() > 9 ? date.getDate() : '0'+date.getDate();
-            var ordernumber = order_tool.userdat()._id+y+m+d+$('.order_infor .all_sum').text()+$('.order_infor .goods').text();
+            var ordernumber = id+y+m+d+$('.order_infor .all_sum').text()+$('.order_infor .goods').text();
             $('.order_infor .order_ok h6').text(ordernumber);
             var goods = JSON.parse(sessionStorage.getItem('order_goods'));
             var address = {person,phone,address}
-            var orderobj = {id:order_tool.userdat()._id,ordernumber,goods:goods,address:address}
-            ajax('buy','POST',orderobj,function(dat){
+            var orderobj = {id,ordernumber,goods:goods,address:address}
+            ajax('/buy','POST',orderobj,function(dat){
                if(dat != '{"n":1,"nModified":1,"ok":1}'){
                   alert(dat);
                }else $('.order_infor .order_ok').css('display','block');
-            })
+            });
+            if(sessionStorage.getItem('del_order') == 'yes'){
+               ajax('/delorder?id='+id,'GET',null,function(dat){
+                  $('.wait_pay').html('');
+                  console.log(dat)
+               });
+            }
            }
         },
         close_order_infor:function(){

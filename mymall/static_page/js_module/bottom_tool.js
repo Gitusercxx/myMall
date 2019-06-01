@@ -42,7 +42,7 @@ let bottom_tool = {
          var buy = JSON.parse(dat)[0].buy;
          var orderstr = '';
          var buystr = '';
-         for(var i=0;i<order.length;i++){
+         for(var i=order.length-1;i>=0;i--){
             var goods = allgoods.filter(function(ele){
                return (ele._id == order[i].number)
             })[0]
@@ -52,7 +52,7 @@ let bottom_tool = {
             <span class="attr">${order[i].attr || ''}</span><span class="num_box">*${order[i].num}</span></li>`
          }
          $('.wait_pay').html(orderstr);
-         for(var n=0;n<buy.length;n++){
+         for(var n=buy.length-1;n>=0;n--){
             buystr = `<h5 class="order_number">单号：${buy[n].ordernumber}</h5>`
             var goodsarr = buy[n].goods;
             for(var k=0;k<goodsarr.length;k++){

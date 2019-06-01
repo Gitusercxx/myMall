@@ -318,7 +318,7 @@ html,body{
     display: inline-block;
     padding-left: 100px; 
     height:100px;
-    width:40%;
+    width:80%;
     line-height: 80px;
     background:url(./img/dianpu.png)left no-repeat;
     background-size: 80px 80px;
@@ -432,7 +432,7 @@ html,body{
 
 }
 /* 活动版块 */
-.active{
+/* .active{
     width:100%;
     height:400px;
     position: relative;
@@ -468,7 +468,7 @@ html,body{
     bottom:0px;
     right:30px;
     border-bottom-right-radius:20px;
-}
+} */
 /* 推荐商品 */
 .rec_title{
     font: normal 700 35px/50px serif;
@@ -602,6 +602,61 @@ html,body{
     text-align: center;
     font: normal 600 20px/30px serif;
     color:#fff;
+}
+/* 分类页 */
+.classify_page{
+    position: absolute;
+    top: 123px;
+    display: none;
+    width:750px;
+    min-height: 100%;
+    background-color:#fff;
+    z-index: 10;
+}
+.classify_page .classify_close{
+    width: 100%;
+    height: 123px;
+    color: #fff;
+    font: 800 40px/123px serif;
+    letter-spacing: 2px;
+    position: absolute;
+    top: -123px;
+    right: 0px;
+    background: rgb(116, 182, 237);
+    color: #fff;
+}
+.classify_page .nav_bar{
+    width: 100%;
+    height: 100px;
+    background-color:#eee;
+    border-radius: 10px;
+}
+.classify_page .nav_bar>span{
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+    height: 100px;
+    font: 800 40px/100px serif;
+    background-color:#eee;
+}
+.classify_page .nav_bar>span.act{
+    height: 95px;
+    font: 600 40px/100px serif;
+    border-bottom: 8px solid #89a7ea;
+}
+.classify_page .listbox{
+    transition: all 1s;
+    width:3000px;
+    position: absolute;
+    top:123px;
+    left:-750px;
+}
+.classify_page .listbox>.list{
+    padding: 15px;
+    width:750px;
+    display: inline-block;
+    margin: 0px;
+
 }
 /* 搜索页 */
 .searchpage{

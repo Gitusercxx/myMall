@@ -107,6 +107,31 @@ function getmethods(req,res){
             }
         }
         break;
+        case '/delorder':
+        var id = req.query.id;
+        db_Operation.change('user',{id,change:{order:[]}},delorder);
+        function delorder (err,result){
+            if(err){
+                res.writeHead(500,{ 'Content-Type': 'text/html' });
+                res.end(err.toString());
+            }else {
+                res.writeHead(200,{ 'Content-Type': 'text/html' });
+                res.end(JSON.stringify(result));
+            }
+        }
+        break;
+        case '/allorder':
+        db_Operation.read('allorder',{},allgoods)
+        function allgoods (err,result){
+            if(err){
+                res.writeHead(500,{ 'Content-Type': 'text/html' });
+                res.end(err.toString());
+            }else {
+                res.writeHead(200,{ 'Content-Type': 'text/html' });
+                res.end(JSON.stringify(result));
+            }
+        }
+         break;
         default:
         res.writeHead(404,{ 'Content-Type': 'text/html' });
         res.end('sorry not fond');break;

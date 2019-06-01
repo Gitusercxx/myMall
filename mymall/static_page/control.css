@@ -1,0 +1,179 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    outline: none;
+    outline-style: none;
+}
+.title{
+    font: 900 35px/60px serif;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #555;
+}
+.nav{
+    width:16%;
+    height: 600px;
+    position: fixed;
+    top:80px;
+    left: 0px;
+    background-color: rgb(160, 171, 250);
+    border-right: none;
+    border-radius: 10px;
+    padding: 0px;
+}
+.nav li{
+    font: 600 20px/55px serif;
+    color: #555;
+    text-align: left;
+    padding-left: 20px;
+    width:100%;
+    border-bottom: 1px solid rgb(182, 181, 181);
+    box-sizing: border-box;
+}
+.nav li.active{
+    background-color: #fff;
+}
+.content{
+    width:83%;
+    height: 600px;
+    position: absolute;
+    top:80px;
+    right: 0px;
+}
+.content .mall>div{
+    margin-top: 30px;
+    width:500px;
+    border-bottom: 1px solid #555;
+}
+.content .mall>div>i{
+    font: 600 20px/30px serif;
+}
+.content .mall>div>input{
+    font: 400 18px/20px serif;
+    width:300px;
+    height: 30px;
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+}
+.content .mall .mall_save{
+    margin-top: 15px;
+    font: 600 18px/25px serif;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    border: 1px solid #555;
+    text-align: center;
+    display: block;
+    background: rgb(160, 171, 250);
+}
+.addgoods,
+.goods{
+    display: none;
+    padding: 10px;
+    width:100%;
+    border: 1px solid rgb(160, 171, 250);
+    border-radius: 10px;
+}
+.addgoods .t_head,
+.goods .t_head{
+    margin: 0;
+    width:100%;
+    height: 30px;
+    border-bottom: 1px solid rgb(160, 171, 250);
+}
+.addgoods .t_head i,
+.goods .t_head i{
+    font: 600 18px/25px serif;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    height: 30px;
+    border-bottom: 1px solid rgb(160, 171, 250);
+}
+.addgoods .add_box li,
+.goods .ulbox li{
+    position: relative;
+    width:100%;
+    margin: 0px;
+    border-bottom: 1px solid rgb(160, 171, 250);
+}
+.goods .ulbox .glyphicon {
+    position: absolute;
+    top: 7px;
+    left: -2px;
+    z-index: 10;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.goods .ulbox li i{
+    font: 600 18px/30px serif;
+    height: 30px;
+    border: none;
+    text-align: right;
+    padding: 0;
+}
+.addgoods .add_box textarea,
+.goods .ulbox li textarea{
+    height: 50px;
+    resize: none;
+    font:400 15px/16px serif;
+    border: none;
+    padding: 5px;
+}
+.addgoods .add_box input,
+.goods .ulbox li input{
+    height: 30px;
+    border: none;
+    text-align: center;
+    /* border-bottom: 1px solid #555; */
+    padding: 0;
+}
+.content .addgoods .addbut,
+.content .addgoods .add_save,
+.content .goods .goods_save{
+    margin-top: 15px;
+    font: 600 18px/25px serif;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    border: 1px solid #555;
+    text-align: center;
+    display: inline-block;
+    background: rgb(160, 171, 250);
+}
+.order{
+    display: none;
+}
+.order>ul li{
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 10px;
+}
+.order>ul li p{
+    display: inline-block;
+}
+.order>ul li span:not(.glyphicon){
+    margin-bottom: 10px;
+    font: 500 17px/18px serif;
+    display: block;
+
+}
+.order>ul li span.pay_check{
+    vertical-align: text-top;
+    width:16px;
+    height: 16px;
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 3px;
+}

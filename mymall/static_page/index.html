@@ -11,8 +11,8 @@
 </head>
 <body>
   <img src="./img/logbj.jpg" class="logbj">
-  <div class="login_page">
-      <img src="./img/close.png" alt="关闭" class="log_close">
+<div class="login_page">
+    <img src="./img/close.png" alt="关闭" class="log_close">
     <div class="log_wapper">
       <div class="log_title"><p class="log act">用户登录</p><p class="reg">新用户注册</p></div>
       <div class="log_box">
@@ -44,7 +44,7 @@
       <input type="tel" class="change_tel" placeholder="输入要手机号码"><span class="tel_but">确定</span>
       <div class="change_box"></div>
     </div>
-  </div>
+</div>
   <!-- 店名简介 -->
 <div class="head">
   <p class="name">woli小店</p> <div class="pull_down glyphicon glyphicon-align-right"></div>
@@ -70,17 +70,17 @@
 <!-- 分类 -->
 <div class="allclass">
   <div class="box">
-    <div class="book"><img src="./img/book.png" alt="书籍">书籍</div>
-    <div class="wenju"><img src="./img/phone.png" alt="电子产品">电子产品</div>
-    <div class="sport"><img src="./img/sport.png" alt="运动器材">运动器材</div>
-    <div class="life"><img src="./img/life.png" alt="日用品">生活用品</div>
+    <div index=0><img src="./img/book.png" alt="书籍">书籍</div>
+    <div index=1><img src="./img/phone.png" alt="电子产品">电子产品</div>
+    <div index=2><img src="./img/sport.png" alt="运动器材">运动器材</div>
+    <div index=3><img src="./img/life.png" alt="日用品">生活用品</div>
   </div>
 </div>
-<div class="active">
+<!-- <div class="active">
   <div class="act1"></div>
   <div class="act2"></div>
   <div class="act3"></div>
-</div>
+</div> -->
 <!-- 商品列表 -->
 <h3 class="rec_title">小店热推</h3>
 <ul class="list index_list">
@@ -88,6 +88,25 @@
   <li><img src="./img/lb01.jpg"><p>热卖！！！二手书籍描述，XXXXXxxxx这个是一本好书xxxxxxx</p><span class="like">2</span><span class="price">20</span></li>
 </ul>
 <h3 class="more">去看看其他商品吧 》</h3>
+</div>
+<div class="classify_page">
+  <div class="classify_close"> 《返回 </div> 
+  <div class="nav_bar">
+    <span index=0>书籍</span>
+    <span index=1 class="act">电子产品</span>
+    <span index=2>运动器材</span>
+    <span index=3>生活用品</span>
+  </div>
+  <div class="listbox">
+    <ul class="list book_list">
+    </ul>
+    <ul class="list electronic_list">
+    </ul>
+    <ul class="list sport_list">
+    </ul>
+    <ul class="list life_list">
+    </ul>
+  </div>
 </div>
 <!-- 搜索页 -->
 <div class="searchpage">
@@ -182,6 +201,7 @@
   <div class="order"><img src="./img/order.png" alt="订单"><span class="order_num">2</span>订单</div>
   <div class="self"><img src="./img/self.png" alt="个人中心">个人中心</div> 
 </div>
+<!-- 订单详情页 -->
 <div class="order_infor">
   <img class="close_order_infor" src="./img/close.png" alt="关闭">
   <h2 class="">请确认订单信息：</h2>
@@ -202,38 +222,8 @@
     <span class="callme">微信号：cxx251x<br>QQ：2793146616</span>
   </div>
 </div>
-<!-- <div class="goods_page">
-  <div class="swiper-container2">
-    <div class="swiper-wrapper">
-        <a class="swiper-slide" href="#"><img src="./img/lb01.jpg"></a>
-        <a class="swiper-slide" href="#"><img src="./img/lb02.jpg"></a>
-        <a class="swiper-slide" href="#"><img src="./img/lb3.jpg"></a>
-        <a class="swiper-slide" href="#"><img src="./img/lb01.jpg"></a>
-    </div>
-    <div class="swiper-pagination2"></div>
-    <span class="glyphicon glyphicon-menu-left back"></span>
-    <span class="share"><img src="./img/share.png" alt="分享"></span>
-  </div>
-  <div class="intorduce">
-    <h3 class="money"><img src="./img/money.png" alt="￥">50</h3>
-    <h4 class="title">这是一本书，好书，好好好的>这是一本书，好书，好好好>这是一本书，好书，好好好V   </h4>
-  </div>
-  <div class="show_goods">
-    <img src="./img/lb01.jpg">
-    <img src="./img/lb02.jpg">
-    <img src="./img/lb3.jpg">
-  </div>
-  <div class="buy">
-    <h4>商品选择购买</span></h4>
-    <i>红色</i><i>蓝色</i><i>黑色</i>
-    <span class="num_box"><i class="red">-</i><i class="num">2</i><i class="add">+</i></span><span class="residue">(库存：10)</span>
-    <div class="butbox">
-      <span class="likethis">收藏</span>
-      <span class="addorder">加入订单</span>
-      <span class="buythis">立即购买</span>
-    </div>
-  </div>
-</div> -->
+
+<!-- 分享页 -->
 <div class="sharepage">
   <img src="./img/share2.png">
 </div>

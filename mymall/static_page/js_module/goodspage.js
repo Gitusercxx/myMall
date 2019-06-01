@@ -172,6 +172,7 @@ define(['tools'],function(tools) {
                 var goods =[{number:$('.goods_page').attr('number'),num:$('.buy .num_box .num').text()}];
             }
         sessionStorage.setItem('order_goods',JSON.stringify(goods));
+        sessionStorage.setItem('del_order','no');
         // var id ='id='+JSON.parse(sessionStorage.getItem('userdat'))._id; 
         // var control = 'control=add';
         // console.log($('.g_attr.act'))

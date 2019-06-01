@@ -16,6 +16,20 @@ var db_Operation = {
             
         })
     },
+    delete:function(collection,data,fn){
+        mongodb.connect(dburl,{ useNewUrlParser: true },function(err,db){
+            if(err){
+                fn(err,null);
+            }else{
+                var basepath = db.db('myMall');
+                basepath.collection(collection).deleteOne(data, function(err, result){
+                    fn(err,result);
+                })
+                db.close();
+            }
+            
+        })
+    },
     read:function(collection,data,fn){
         mongodb.connect(dburl,{ useNewUrlParser: true },function(err,db){
             if(err){
