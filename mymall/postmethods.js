@@ -125,26 +125,16 @@ function postmethods(req, res) {
                     }
                 }
             }
-            function add_allorder(dat){
+            function add_allorder(dat) {
                 var obj = {};
                 obj._id = dat.id.toString() + new Date().getTime();
                 obj.ordernumber = dat.ordernumber;
-                obj.goods=dat.goods;
+                obj.goods = dat.goods;
                 obj.address = dat.address;
-                db_Operation.add('allorder',obj, add_allorder);
+                db_Operation.add('allorder', obj, add_allorder);
                 function add_allorder(err, result) {
-                    // if (err) {
-                    //     res.writeHead(500, { 'Content-Type': 'text/html' });
-                    //     res.end(err.toString());
-                    // } else {
-                    //     res.writeHead(200, { 'Content-Type': 'text/html' });
-                    //     res.end(JSON.stringify(result));
-                    // }
                 }
             }
-
-
-
             break;
         case '/order':
             var dat = req.body;
@@ -222,7 +212,7 @@ function postmethods(req, res) {
             var dat = req.body.addgoods;
             var flag = 0;
             console.log(dat)
-            for(var i=0;i<dat.length;i++){
+            for (var i = 0; i < dat.length; i++) {
                 console.log(dat[i])
                 db_Operation.add('goods', dat[i], function (err, result) {
                     if (err) {
@@ -230,28 +220,28 @@ function postmethods(req, res) {
                         res.end(JSON.stringify(err));
                     } else {
                         flag++;
-                        if(flag == dat.length){
+                        if (flag == dat.length) {
                             res.writeHead(200, { 'Content-Type': 'text/html' });
                             res.end(JSON.stringify(['add~ok']));
                         }
-                    
+
                     }
                 })
             }
             break;
-           case '/pay_check':
-                var dat = req.body;
-                db_Operation.change('allorder', dat, pay_check);
-                function pay_check(err, result) {
-                    if (err) {
-                        res.writeHead(500, { 'Content-Type': 'text/html' });
-                        res.end(err.toString());
-                    } else {
-                        res.writeHead(200, { 'Content-Type': 'text/html' });
-                        res.end(JSON.stringify(result));
-                    }
+        case '/pay_check':
+            var dat = req.body;
+            db_Operation.change('allorder', dat, pay_check);
+            function pay_check(err, result) {
+                if (err) {
+                    res.writeHead(500, { 'Content-Type': 'text/html' });
+                    res.end(err.toString());
+                } else {
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.end(JSON.stringify(result));
                 }
-               break;
+            }
+            break;
         default:
             res.writeHead(404, { 'Content-Type': 'text/html' });
             res.end('sorry not fond'); break;

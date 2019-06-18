@@ -5,6 +5,7 @@ $('.nav').on('click','li',show_content);
 $('.ulbox').on('click','span',delgoods);
 $('.addbut').on('click',addone);
 $('.order').on('click','.pay_check',pay_check);
+$('.enter_but').on('click',enterpage);
 function ajax(url, type, dat, fn) {
     $.ajax({
        url: url,
@@ -18,16 +19,30 @@ function ajax(url, type, dat, fn) {
        }
     })
  }
+ //进入管理界面
+ var passwordarr;
+ function enterpage(){
+    var pass = $('.putval').val().toString();
+    if(passwordarr.indexOf(pass) != -1 ){
+        $('.logpage').slideUp(300);
+        $('.content').slideDown(300);
+    }else{
+        alert('验证失败')
+    }
+    console.log(passwordarr)
+ }
 //  店铺管理
  var malldat;
  ajax('/mallData','GET',null,function(dat){
     malldat = JSON.parse(dat)[0];
     var mallkey = JSON.parse(dat)[1];
+    passwordarr = malldat.password;
     $('.mclass input').val(malldat.mallname||'');
     console.log(malldat.lunboimg)
     $('.lunboimg input').val(malldat.lunboimg.join('/') ||'');
     $('.star input').val(malldat.star||'');
-    $('.keyword input').val(mallkey.keyword.join('/')||'')
+    $('.keyword input').val(mallkey.keyword.join('/')||'');
+    $('.password input').val(passwordarr.join('/')||'');
  });
 
  function mall_save(){
@@ -37,7 +52,13 @@ function ajax(url, type, dat, fn) {
      mallobj.star = $('.star input').val() || 10;
      mallobj.lunboimg = $('.lunboimg input').val().split('/') || ['lb02.jpg','lb01.jpg','lb03.jpg'];
      mallobj.keyword = $('.keyword input').val().split('/') || ['二手书','锻炼','手机'];
-     ajax('/mallchange','POST',{id,change:mallobj});
+     mallobj.password = $('.password input').val().split('/') || [123456];
+     ajax('/mallchange','POST',{id,change:mallobj},function(e){
+         console.log(e)
+        if(JSON.parse(e).ok){
+            alert('保存成功！')
+        }
+     });
  }
  function show_content(){
      var thisname = $(this).attr('name');

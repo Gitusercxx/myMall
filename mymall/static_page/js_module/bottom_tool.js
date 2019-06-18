@@ -38,8 +38,8 @@ let bottom_tool = {
        }
        function draw_order (dat){
          var allgoods = JSON.parse(sessionStorage.getItem('allgoods')); 
-         var order = JSON.parse(dat)[0].order;
-         var buy = JSON.parse(dat)[0].buy;
+         var order = JSON.parse(dat)[0].order||[];
+         var buy = JSON.parse(dat)[0].buy||[];
          var orderstr = '';
          var buystr = '';
          for(var i=order.length-1;i>=0;i--){
